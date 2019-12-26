@@ -1,0 +1,321 @@
+html {
+  overflow-y: scroll;
+  color: #000;
+  background-color: #fff;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+html * {
+  outline: 0;
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+input,
+select,
+textarea {
+  font-size: 100%;
+}
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+fieldset,
+img {
+  border: 0;
+}
+abbr,
+acronym {
+  font-variant: normal;
+  border: 0;
+}
+del {
+  text-decoration: line-through;
+}
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+th,
+var {
+  font-weight: 500;
+  font-style: normal;
+}
+ol,
+ul {
+  list-style: none;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+a:hover {
+  text-decoration: underline;
+}
+ins,
+a {
+  text-decoration: none;
+}
+.flex-left,
+.flex-center,
+.flex-right,
+.flex-space-between,
+.flex-space-evenly,
+.flex-top,
+.flex-middle,
+.flex-bottom {
+  display: flex;
+  flex-flow: row wrap;
+}
+.flex-left {
+  justify-content: flex-start;
+}
+.flex-center {
+  justify-content: center;
+}
+.flex-right {
+  justify-content: flex-end;
+}
+.flex-space-between {
+  justify-content: space-between;
+}
+.flex-space-evenly {
+  justify-content: space-evenly;
+}
+.flex-top {
+  align-items: flex-start;
+  align-content: flex-start;
+}
+.flex-middle {
+  align-items: center;
+  align-content: center;
+}
+.flex-bottom {
+  align-items: flex-end;
+  align-content: flex-end;
+}
+.text-ellipsis {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+.indent {
+  padding-left: 0.75em;
+  text-indent: -0.75em;
+}
+img {
+  content: normal !important;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.fs0 {
+  font-size: 0;
+}
+.fs7 {
+  font-size: 7px;
+}
+.fs8 {
+  font-size: 8px;
+}
+.fs9 {
+  font-size: 9px;
+}
+.fs10 {
+  font-size: 10px;
+}
+.fs11 {
+  font-size: 11px;
+}
+.fs12 {
+  font-size: 12px;
+}
+.fs13 {
+  font-size: 13px;
+}
+.fs14 {
+  font-size: 14px;
+}
+.fs15 {
+  font-size: 15px;
+}
+.fs16 {
+  font-size: 16px;
+}
+.fs17 {
+  font-size: 17px;
+}
+.fs18 {
+  font-size: 18px;
+}
+.fs19 {
+  font-size: 19px;
+}
+.fs20 {
+  font-size: 20px;
+}
+.fs21 {
+  font-size: 21px;
+}
+.fs22 {
+  font-size: 22px;
+}
+.fs23 {
+  font-size: 23px;
+}
+.fs24 {
+  font-size: 24px;
+}
+.fs25 {
+  font-size: 25px;
+}
+.fs26 {
+  font-size: 26px;
+}
+.fs27 {
+  font-size: 27px;
+}
+.fs28 {
+  font-size: 28px;
+}
+/* IPhone Plus 字号增大2号 */
+@media (device-height: 736px) and (-webkit-min-device-pixel-ratio: 3) {
+  .fs7 {
+    font-size: 9px;
+  }
+  .fs8 {
+    font-size: 10px;
+  }
+  .fs9 {
+    font-size: 11px;
+  }
+  .fs10 {
+    font-size: 12px;
+  }
+  .fs11 {
+    font-size: 13px;
+  }
+  .fs12 {
+    font-size: 14px;
+  }
+  .fs13 {
+    font-size: 15px;
+  }
+  .fs14 {
+    font-size: 16px;
+  }
+  .fs15 {
+    font-size: 17px;
+  }
+  .fs16 {
+    font-size: 18px;
+  }
+  .fs17 {
+    font-size: 19px;
+  }
+  .fs18 {
+    font-size: 20px;
+  }
+  .fs19 {
+    font-size: 21px;
+  }
+  .fs20 {
+    font-size: 22px;
+  }
+  .fs21 {
+    font-size: 23px;
+  }
+  .fs22 {
+    font-size: 24px;
+  }
+  .fs23 {
+    font-size: 25px;
+  }
+  .fs24 {
+    font-size: 26px;
+  }
+  .fs25 {
+    font-size: 27px;
+  }
+  .fs26 {
+    font-size: 28px;
+  }
+  .fs27 {
+    font-size: 29px;
+  }
+  .fs28 {
+    font-size: 30px;
+  }
+}
+/* 适配IPhone X */
+:root {
+  --safe-area-inset-top: 0;
+  --safe-area-inset-bottom: 0;
+}
+@supports (width: constant(safe-area-inset-top)) {
+  :root {
+    --safe-area-inset-top: constant(safe-area-inset-top);
+    --safe-area-inset-bottom: constant(safe-area-inset-bottom);
+  }
+}
+@supports (width: env(safe-area-inset-top)) {
+  :root {
+    --safe-area-inset-top: env(safe-area-inset-top);
+    --safe-area-inset-bottom: env(safe-area-inset-bottom);
+  }
+}
