@@ -18,7 +18,6 @@
     <div class="table-box">
       <el-table
         ref="myTable"
-        v-loadmore="loadMore"
         v-loading="listLoad"
         row-key="id"
         :max-height="tableHeight"
@@ -61,6 +60,7 @@
 
 <script>
 // import api from '@/api/index'
+import axios from 'axios'
 import Input from './Input'
 export default {
   name: 'QueryIndex',
@@ -68,83 +68,37 @@ export default {
   data() {
     return {
       tableHeight: null,
-      searchKey: '',
+      searchKey: 0,
       searchName: '淘宝编码',
       listLoad: false,
       dataType: '1',
       pageNo: 0,
       hasNext: true,
-      list: [],
+      list: this.$store.state.query.list,
       loadSuc: true,
-      selected: '0',
+      selected: '1',
       searchNum: '',
-      queryList: [
-        {
-          name: '淘宝根据编码',
-          label: '淘宝编码',
-          type: '0'
-        },
-        {
-          name: '淘宝根据手机号',
-          label: '手机号',
-          type: '1'
-        },
-        {
-          name: '支付宝根据编码',
-          label: '支付宝编码',
-          type: '2'
-        },
-        {
-          name: '支付宝根据手机号',
-          label: '手机号',
-          type: '3'
-        },
-        {
-          name: '京东根据编码',
-          label: '京东编码',
-          type: '4'
-        },
-        {
-          name: '京东根据订单号',
-          label: '京东订单号',
-          type: '5'
-        },
-        {
-          name: '淘宝补贴根据编码',
-          label: '淘宝补贴编码',
-          type: '6'
-        },
-        {
-          name: '码状态查询',
-          label: '码状态查询',
-          type: '7'
-        },
-        {
-          name: '码状态查询',
-          label: '码状态查询',
-          type: '8'
-        }
-      ],
+      queryList: [],
       headList: {
         '0': {
           orgName: '渠道',
           codeName: '二维码',
           mobile: '手机号',
           orderNo: '订单号',
-          registerTime: '注册时间',
-          bindTime: '激活时间',
-          buyTime: '首购时间',
-          bindCardTime: '绑卡时间'
+          register_time: '注册时间',
+          bind_time: '激活时间',
+          buy_time: '首购时间',
+          bind_card_time: '绑卡时间'
         },
         '1': {
           orgName: '渠道',
           codeName: '二维码',
           mobile: '手机号',
           orderNo: '订单号',
-          registerTime: '注册时间',
-          bindTime: '激活时间',
-          buyTime: '首购时间',
-          bindCardTime: '绑卡时间'
+          register_time: '注册时间',
+          bind_time: '激活时间',
+          buy_time: '首购时间',
+          bind_card_time: '绑卡时间'
         },
         '2': {
           orgName: '渠道',
@@ -222,7 +176,19 @@ export default {
       return this.headList[this.searchKey]
     }
   },
-  watch: {},
+  async asyncData({ $axios }) {
+    const res = await $axios.get('/initList')
+    const { data } = res || []
+    return {
+      queryList: data.data
+    }
+  },
+  async fetch({ store, params }) {
+    let res = await axios.get('http://127.0.0.1:8090/orderQuery')
+    await store.dispatch('query/getCodeList', {
+      data: res.data.data || []
+    })
+  },
   mounted() {
     const that = this
     that.tableHeight = document.documentElement.clientHeight - 290
@@ -232,6 +198,7 @@ export default {
         that.tableHeight = height
       })
     })
+    // console.log(this.list)
   },
   methods: {
     onChange: function(data) {

@@ -1,5 +1,7 @@
 const Koa = require('koa')
 const consola = require('consola')
+const bodyParser = require('koa-bodyparser')
+const router = require('./routes/index.js')
 const { Nuxt, Builder } = require('nuxt')
 
 const app = new Koa()
@@ -16,7 +18,7 @@ async function start() {
     host = process.env.HOST || '127.0.0.1',
     port = process.env.PORT || 8090
   } = nuxt.options.server
-  consola.info(nuxt.options.server)
+  // consola.info(nuxt.options.server)
 
   // Build in development
   if (config.dev) {
@@ -25,7 +27,9 @@ async function start() {
   } else {
     await nuxt.ready()
   }
-
+  app.use(bodyParser())
+  // 加载路由中间件
+  app.use(router.routes()).use(router.allowedMethods())
   app.use(ctx => {
     ctx.status = 200
     ctx.respond = false // Bypass Koa's built-in response handling
